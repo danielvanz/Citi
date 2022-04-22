@@ -32,6 +32,9 @@ def precision(y_true, y_pred):
 def recall(y_true, y_pred):
     return TP(y_true, y_pred)/(TP(y_true, y_pred) + FN(y_true, y_pred))
 
+def FPR(y_true, y_pred):
+    return FP(y_true, y_pred)/(FP(y_true, y_pred) + TN(y_true, y_pred))
+
 def F1_score(y_true, y_pred):
     return 2 * (precision(y_true, y_pred) * recall(y_true, y_pred)) / (precision(y_true, y_pred) + recall(y_true, y_pred))
 
@@ -73,3 +76,6 @@ def FN_df(df): # count how many false negatives
 
 def recall_df(df):
     return TP_df(df)/(TP_df(df) + FN_df(df))
+
+def FPR_df(df):
+    return FP_df(df)/(FP_df(df) + TN_df(df))
